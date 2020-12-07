@@ -1,3 +1,4 @@
+
 import java.util.NoSuchElementException;
 public class Range implements IntegerSequence{
   private int start,end,current;
@@ -7,6 +8,8 @@ public class Range implements IntegerSequence{
   //@param start : the starting value (inclusive) which must be <= end.
   //@param end : the ending value which is also inclusive.
   public Range(int start,  int end){ 
+  if (start > end)
+  {throw new IllegalArgumentException("error!!");}
   this.start = start;
   this.end = end;
   current = start;
@@ -16,7 +19,7 @@ public class Range implements IntegerSequence{
   current = start;}
   
   public int length(){ 
-  return Math.abs(end - start); }
+  return Math.abs(end - start + 1); }
   
   //When current is no longer a valid element in the range, it should return false. 
   public boolean hasNext(){ 
